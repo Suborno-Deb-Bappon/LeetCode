@@ -39,10 +39,6 @@ class Solution:
         if(duplicate_rows(board) == False and duplicate_columns(board) == False):
             submatrices = build_submatrix(board)
             for submatrix in submatrices:
-                for row in submatrix:
-                    print(row)
-                print()
-            for submatrix in submatrices:
                 if(duplicate_rows(submatrix) == True or duplicate_columns(submatrix) == True):
                     return False
             return True
