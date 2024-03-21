@@ -39,9 +39,13 @@ class Solution:
         if(duplicate_rows(board) == False and duplicate_columns(board) == False):
             submatrices = build_submatrix(board)
             for submatrix in submatrices:
-                if(duplicate_rows(submatrix) == True or duplicate_columns(submatrix) == True):
-                    return False
+                u = set()
+                for row in submatrix:
+                    for k in row:
+                        if k.isdigit() and k in u:
+                            return False
+                        if k.isdigit():
+                            u.add(k)
             return True
         else:
             return False
-                  
